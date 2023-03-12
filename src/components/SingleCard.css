@@ -1,0 +1,45 @@
+.card{
+    position: relative;
+}
+
+.card img{
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    display: block;
+}
+
+/* --------------------      FLIPPING EFFECT     ------------------*/
+
+/* 3   INITIAL STATE OF FRONT --  Front is hiding. Transition gives the rotate tranform an animated look      */
+/*                          and 0.2 sec is time it takes for the animation to complete */
+
+.card .front{
+    position: absolute;
+    transform: rotateY(90deg);  /* makes the front image hide */
+    transition: all ease-in 0.2s;
+}
+
+/* 4 AFTER ROTATION --  Front is rotating and diplaying. Transition already applied on front class gives the rotate     */
+/*                  tranform an animated look and DELAY -0.2 makes the transition start after the flip of back is 
+                     complete */
+
+.flipped .front{
+    transition-delay: 0.2s;
+    transform: rotateY(0deg); /* MAkes it visible again*/
+}
+
+/* 1     INITIAL STATE  --  Back is showing . Transition gives the rotaet tranform a animated look      */
+/*                          and 0.2 sec is time it takes for the animation to complete */
+.card .back{
+    transform: rotateY(0deg);  /* MAkes it visible again*/
+    transition: all ease-in 0.2s;
+}
+
+/* 2 On click  --  Back is rotating and hiding. Transition already applied on back class gives the rotate     */
+/*                  tranform an animated look and DELAY -0 makes the transition start instantly after click */
+
+.flipped .back{
+    transform: rotateY(90deg);/* makes the back image hide */
+    transition-delay: 0s;
+}
